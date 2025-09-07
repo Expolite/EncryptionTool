@@ -2,10 +2,12 @@
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 import os
 
+debug = "\033[30;43m[debug]\033[0m"
+
 # --- Key setup ---
 # AES-256 requires a 32-byte key
 key = os.urandom(32)  # never hardcode in real apps
-print(f"\033[30;43m[debug]\033[0m Key: {key}")
+print(f"{debug} Key: {key}")
 
 # --- Encrypt ---
 aesgcm = AESGCM(key)
@@ -26,4 +28,4 @@ print("Decrypted:", plaintext.decode())
 
 # Author: Ronnel Macompas
 # Date: Sep 7, 2025
-# Version: 001
+# Version: 002
